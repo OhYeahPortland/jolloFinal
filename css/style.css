@@ -1,0 +1,75 @@
+body {
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+}
+
+#cell0 {
+    /*width: 10px;*/
+    background: #ecaf00;
+    height: 28px;
+    border: 1px solid #6e5203;
+    vertical-align: middle;
+}
+
+#cell1 {
+    /*width: 20px;*/
+    background: #ecaf00;
+    height: 28px;
+    border: 1px solid #6e5203;
+    vertical-align: middle;
+}
+
+#cell2 {
+    /*width: 30px;*/
+    background: #ecaf00;
+    height: 28px;
+    border: 1px solid #6e5203;
+}
+
+#cell3 {
+    /*width: 40px;*/
+    background: #ecaf00;
+    height: 28px;
+    border: 1px solid #6e5203;
+}
+
+#cell4 {
+    /*width: 50px;*/
+    background: #ecaf00;
+    height: 28px;
+    border: 1px solid #6e5203;
+}
+
+#cell5 {
+    /*width: 60px;*/
+    background: #ecaf00;
+    height: 28px;
+    border: 1px solid #6e5203;
+}
+
+#cell6 {
+    /*width: 70px;*/
+    background: #ecaf00;
+    height: 28px;
+    border: 1px solid #6e5203;
+}
+
+#cell7 {
+    /*width: 80px;*/
+    background: #ecaf00;
+    height: 28px;
+    border: 1px solid #6e5203;
+}
+
+#cell8 {
+    /*width: 90px;*/
+    background: #ecaf00;
+    height: 28px;
+    border: 1px solid #6e5203;
+}
+
+#cell9 {
+    /*width: 100px;*/
+    background: #ecaf00;
+    height: 28px;
+    border: 1px solid #6e5203;
+}
