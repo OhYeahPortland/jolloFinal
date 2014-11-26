@@ -10,11 +10,11 @@
 var numbers = [80,90,30,10,20,40,60,100,50,70];
 
 //checking my display function should work
-var numbers02 = [10,20,30,40,50,60,70,100,90,80];
-function checkDisplayPrint() {
-    numbers = numbers02;
-    updateDisplay();
-}
+//var numbers02 = [10,20,30,40,50,60,70,100,90,80];
+//function checkDisplayPrint() {
+//    numbers = numbers02;
+//    updateDisplay();
+//}
 
 //Display the beginning values from the array
 $(document).ready(function() {
@@ -58,14 +58,23 @@ function sleep(milliseconds) { //accepts one parameter time in milliseconds
 
 function sortIt() {
 // sort numbers using bubble sort, selection sort,
-// insertion sort or quicksort
+// insertion sort or quick sort
     var i, j; //creating variables for i and j
     var iMin; //creating variable for iMin
     /* advance the position through the entire array */
     for (j = 0; j < numbers.length - 1; j++) { //j equals zero, when j is smaller than length of the numbers array, increment j
         var iMin = j; //index of j stored to a variable iMin
-        console.log("value of iMin in first for loop: " + iMin);
+
+        //Option 1 - WORKS with with alert box
         updateDisplay();
+        alert("Continue?");
+
+        //Option 2 - FAIL does not refresh with long sleep
+//        updateDisplay();
+//        sleep(200000);
+
+        //Option 3 - FAIL try a setTimeOut and call the updateDisplay function
+//        setTimeout(updateDisplay(), 100000);
 
         //i equals zero, when i is smaller than length of the numbers array, increment i
         for ( i = j+1; i < numbers.length; i++) {
@@ -73,20 +82,15 @@ function sortIt() {
             if (numbers[i] < numbers[iMin]) {
                 /* found new minimum; remember its index */
                 iMin = i; //number of iMin changed to
-                console.log("value of iMin after second loop and in if statment: " + iMin);
-                updateDisplay();
+//                console.log("value of iMin after second loop and in if statement: " + iMin);
             }
         }
 
         //if iMin(after the first for loop) is not equal to j
         if(iMin != j) {
             //numbers index at j, is sliced into the array (index,howmany,itemToReplace) with this element in the array??? [0]
-            console.log("in the second if, before splice numbers value: " + numbers);
             numbers[j] = numbers.splice(iMin, 1, numbers[j])[0];
             console.log("in the second if, after splice numbers value: " + numbers);
-            updateDisplay();
-            sleep(1000);
-
         }
     }
 }
