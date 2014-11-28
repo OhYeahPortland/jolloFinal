@@ -1,9 +1,18 @@
 body {
     font-family: "Trebuchet MS", Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #d6d6d6;
+    text-align: center;
+}
+
+.mainFrame {
+    width: 430px;
+    color: #383838;
+    text-align: center;
 }
 
 button {
-    height: 30px;
+    height: 25px;
 }
 
 #cell0 {

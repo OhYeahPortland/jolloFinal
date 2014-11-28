@@ -1,23 +1,12 @@
-//1. start with a list of numbers in increments of 10 out of order.
-//2. have those numbers represent a length of a bar in the dom
-//3. pull the values out of the array and compare them
-//4. update the DOM via jQuery with a style width in pixels based on the new array
-//5. Check the next two values in the array
-//6. update the DOM via jQuery with a style width in pixels based on the new array
-//7. loop through all numbers in array
+
 
 //starting values for the array
-var numbers = [80,90,30,10,20,40,60,100,50,70];
-
-//checking my display function should work
-//var numbers02 = [10,20,30,40,50,60,70,100,90,80];
-//function checkDisplayPrint() {
-//    numbers = numbers02;
-//    updateDisplay();
-//}
+var numbers = [80, 90, 30, 10, 20, 40, 60, 100, 50, 70];
+var x = 0;
+var iMin = x; //index of j stored to a variable iMin
 
 //Display the beginning values from the array
-$(document).ready(function() {
+$(document).ready(function () {
     $('#cell0').css('width', numbers[0] + 'px');
     $('#cell1').css('width', numbers[1] + 'px');
     $('#cell2').css('width', numbers[2] + 'px');
@@ -44,53 +33,50 @@ function updateDisplay() {
     $('#cell9').css('width', numbers[9] + 'px');
 }
 
-console.log("top level numbers: " + numbers);
+//console.log("top level numbers: " + numbers);
 
 function sleep(milliseconds) { //accepts one parameter time in milliseconds
     var start = new Date().getTime(); //variable start set to current time
     for (var i = 0; i < 1e7; i++) { //loop if I is less than (something) loop
-        if ((new Date().getTime() - start) > milliseconds){
+        if ((new Date().getTime() - start) > milliseconds) {
             break; //break the loop
         }
     }
 }
 
+function increment() {
+//    console.log("x before increment" + x);
+    if (x < numbers.length) {
+        sortIt();
+    }
+    x++;
+}
 
 function sortIt() {
-// sort numbers using bubble sort, selection sort,
-// insertion sort or quick sort
-    var i, j; //creating variables for i and j
-    var iMin; //creating variable for iMin
-    /* advance the position through the entire array */
-    for (j = 0; j < numbers.length - 1; j++) { //j equals zero, when j is smaller than length of the numbers array, increment j
-        var iMin = j; //index of j stored to a variable iMin
-
-        //Option 1 - WORKS with with alert box
-        updateDisplay();
-        alert("Continue?");
-
-        //Option 2 - FAIL does not refresh with long sleep
-//        updateDisplay();
-//        sleep(200000);
-
-        //Option 3 - FAIL try a setTimeOut and call the updateDisplay function
-//        setTimeout(updateDisplay(), 100000);
-
-        //i equals zero, when i is smaller than length of the numbers array, increment i
-        for ( i = j+1; i < numbers.length; i++) {
-            //If the number at index i is less then
-            if (numbers[i] < numbers[iMin]) {
-                /* found new minimum; remember its index */
-                iMin = i; //number of iMin changed to
+    var i = x;
+    iMin = x; //value to store the highest number location
+    //i equals zero, when i is smaller than length of the numbers array, increment i
+    for (i = x + 1; i < numbers.length; i++) {
+//        console.log("(NEXT i= x+1): " + i);
+//        console.log("x: " + x + ", iMin: " + iMin + ", i: " + i);
+//        console.log("if(numbers[i]<numbers[iMin]Store I as iMin: value of numbers[i] (NEXT): " + numbers[i] + " vs numbers[iMin] (FIRST) " + numbers[iMin] + " before if check");
+        //numbers[i] next number less than stored minimum
+        if (numbers[i] < numbers[iMin]) {
+            /* found new minimum; remember its index */
+            iMin = i; //number of iMin changed to
 //                console.log("value of iMin after second loop and in if statement: " + iMin);
-            }
         }
+    }
 
-        //if iMin(after the first for loop) is not equal to j
-        if(iMin != j) {
-            //numbers index at j, is sliced into the array (index,howmany,itemToReplace) with this element in the array??? [0]
-            numbers[j] = numbers.splice(iMin, 1, numbers[j])[0];
-            console.log("in the second if, after splice numbers value: " + numbers);
-        }
+    //if iMin(after the first for loop) is not equal to j
+    if (iMin != x) {
+        //numbers index at j, is sliced into the array (index,how many,itemToReplace) with this element in the array [0]
+//        console.log("value of numbers array before splice: " + numbers);
+//        console.log("before splice, numbers[x]: " + numbers[x] + " index to be replaced by: " + numbers[iMin]);
+        numbers[x] = numbers.splice(iMin, 1, numbers[x])[0];
+//        console.log('after splice, numbers[x]: ' + numbers);
+//        console.log("x: " + x + ", iMin: " + iMin + ", i: " + i);
+        i = x;
+        updateDisplay();
     }
 }
